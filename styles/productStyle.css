@@ -1,0 +1,327 @@
+html,
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding: 40px;
+}
+
+.wrapper {
+    width: 320px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.cardContainer .top {
+    width: 100%;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.cardContainer .top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 70%);
+}
+
+.cardContainer .details {
+    margin: 20px 0;
+}
+
+.cardContainer .details h1 {
+    font-size: 22px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.cardContainer .details p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.add-to-cart {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+#cartButton {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid #000000;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#cartButton:hover {
+    background-color: #000000;
+    color: white;
+}
+
+#cartCount {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.custom-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.custom-alert .close-alert {
+    margin-left: 15px;
+    padding: 5px 10px;
+    background: white;
+    color: #2575fc;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-alert .close-alert:hover {
+    background: #e4e4e4;
+}
+
+
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+#searchInput {
+    width: 50%;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #6a11cb;
+}
+
+@media (max-width: 768px) {
+
+    .nav-bar-responsive {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .nav-bar-responsive #logo {
+        color: white;
+        font-size: 1.5rem;
+    }
+
+
+    .nav-bar-responsive svg {
+        cursor: pointer;
+        fill: white;
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-bar-responsive svg:hover {
+        transform: scale(1.1);
+    }
+
+
+    #cartButton {
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 10px 15px;
+        border-radius: 50px;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #cartButton:hover {
+        background-color: white;
+        color: #333;
+    }
+
+    #cartCount {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .nav-bar-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+
+    }
+
+    .nav-bar-links.show {
+        display: flex;
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .nav-bar-links ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .nav-bar-links ul li {
+        margin: 10px 0;
+    }
+
+    .nav-bar-links ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-bar-links ul li a:hover {
+        background-color: #444;
+        border-radius: 4px;
+    }
+
+
+    .cardWrapper {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+}
